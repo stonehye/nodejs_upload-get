@@ -7,7 +7,7 @@ web.js
 
 ### upload
 날짜(date), 시간(time), 온도(temp)를 받아 list 배열에 push한다. 
-''''
+```
 var seq = 0
 app.get('/upload', function (req,res){
     fs.appendFile('log.txt', JSON.stringify(req.query)+"\n", function(err){
@@ -18,11 +18,11 @@ app.get('/upload', function (req,res){
         res.end ("Got "+String(seq++)+" "+JSON.stringify(req.query))
     });
 })
-''''
+```
 
 ### get
 받은 count만큼 입력받은 데이터 출력 (list 배열 출력)
-''''
+```
 app.get('/get', function (req,res){
     var i
     var count = req.param('count')
@@ -37,10 +37,11 @@ app.get('/get', function (req,res){
     res.send(String(msg));
 });
 
-''''
+```
 
 
 URL
 ----
 * 데이터로깅: http://mllime.sogang.ac.kr:3000/upload?date=20180326&time=13:52:12&temp=25.33
 * 데이터덤프: http://mllime.sogang.ac.kr:3000/get?count=45
+
